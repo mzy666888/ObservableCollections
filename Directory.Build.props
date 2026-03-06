@@ -6,11 +6,11 @@
     <!-- NuGet Packaging -->
     <IsPackable>false</IsPackable>
     <PackageVersion>$(Version)</PackageVersion>
-    <Company>Cysharp</Company>
-    <Authors>Cysharp</Authors>
+    <Company>Sesame</Company>
+    <Authors>Sesame</Authors>
     <PackageTags>collection</PackageTags>
-    <Copyright>© Cysharp, Inc.</Copyright>
-    <PackageProjectUrl>https://github.com/Cysharp/ObservableCollections</PackageProjectUrl>
+    <Copyright>© Sesame, Inc.</Copyright>
+    <PackageProjectUrl>https://github.com/mzy666888/ObservableCollections</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

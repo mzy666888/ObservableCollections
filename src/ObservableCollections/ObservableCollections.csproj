@@ -12,6 +12,11 @@
     <Description>High performance observable collections and synchronized views, for WPF, Blazor, Unity.</Description>
     <SignAssembly>true</SignAssembly>
     <IsPackable>true</IsPackable>
+    <PackageId>Sesame.$(AssemblyName)</PackageId>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors />
+    <Company />
+    <Copyright />
   </PropertyGroup>
 
   <ItemGroup>
