@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <IsAotCompatible>true</IsAotCompatible>
 
+    <PublishAot>true</PublishAot>
     <!-- NuGet Packaging -->
     <Description>High performance observable collections and synchronized views, for WPF, Blazor, Unity.</Description>
     <SignAssembly>true</SignAssembly>
