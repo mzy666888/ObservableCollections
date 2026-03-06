@@ -1,4 +1,4 @@
-using ObservableCollections.Internal;
+﻿using ObservableCollections.Internal;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -11,7 +11,7 @@ namespace ObservableCollections;
 
 internal sealed class FiltableSynchronizedViewList<T, TView> : NotifyCollectionChangedSynchronizedViewList<TView>
 {
-    static readonly PropertyChangedEventArgs CountPropertyChangedEventArgs = new("Count");
+    static readonly PropertyChangedEventArgs CountPropertyChangedEventArgs = new(nameof(Count));
     static readonly Action<NotifyCollectionChangedEventArgs> raiseChangedEventInvoke = RaiseChangedEvent;
 
     readonly ISynchronizedView<T, TView> parent;
@@ -571,12 +571,7 @@ internal sealed class NonFilteredSynchronizedViewList<T, TView> : NotifyCollecti
                     {
                         if (isSupportRangeFeature)
                         {
-#if NET8_0_OR_GREATER
                             listView.InsertRange(e.NewStartingIndex, e.NewViews);
-#else
-                            using var array = new CloneCollection<TView>(e.NewViews);
-                            listView.InsertRange(e.NewStartingIndex, array.AsEnumerable());
-#endif
                         }
                         else
                         {
@@ -687,8 +682,6 @@ internal sealed class NonFilteredSynchronizedViewList<T, TView> : NotifyCollecti
                     }
                     else
                     {
-#if NET6_0_OR_GREATER
-#pragma warning disable CS0436
                         if (parent is ObservableList<T>.View<TView> observableListView && typeof(T) == typeof(TView))
                         {
                             var comparer = new ViewComparer(e.SortOperation.Comparer ?? Comparer<T>.Default);
@@ -696,8 +689,6 @@ internal sealed class NonFilteredSynchronizedViewList<T, TView> : NotifyCollecti
                             viewSpan.Sort(comparer);
                         }
                         else
-#pragma warning restore CS0436
-#endif
                         {
                             // can not get source Span, do Clear and Refresh
                             listView.Clear();
